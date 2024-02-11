@@ -4,7 +4,7 @@ import React from 'react'
 const login = () => {
   return (
     <View>
-      <Text>login</Text>
+      <Text>login start working 12.02.24</Text>
     </View>
   )
 }
