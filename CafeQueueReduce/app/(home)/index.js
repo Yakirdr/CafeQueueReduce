@@ -1,14 +1,15 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-
-const HomeScreen = () => {
+import Carousel from "../../Components/Carousal";
+const index = () => {
   return (
     <View>
-      <Text>HomeScreen</Text>
+      <Text>home </Text>
+    <Carousel/>
     </View>
   )
 }
 
-export default HomeScreen
+export default index
 
 const styles = StyleSheet.create({})
