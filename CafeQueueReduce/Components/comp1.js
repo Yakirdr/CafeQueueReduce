@@ -4,7 +4,7 @@ import React from 'react'
 const comp1 = () => {
   return (
     <View>
-      <Text>comp1</Text>
+      <Text>yakir</Text>
     </View>
   )
 }
