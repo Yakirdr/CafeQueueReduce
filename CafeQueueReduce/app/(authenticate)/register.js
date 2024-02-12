@@ -25,17 +25,13 @@ const register = () => {
       password: password,
     });
 
-    if (data?.user?.role == "authenticated") {
-      Alert.alert(
-        "You have been successfully registered",
-        "please check your email for confirmation"
-      );
+    if(data?.user?.role == "authenticated"){
+        Alert.alert("You have been successfully registered"/*,"please check your email for confirmation"*/)
     }
-    if (error) {
-      Alert.alert("Error while registering", "please try again");
+    if(error){
+        Alert.alert("Error while registering","please try again")
     }
   }
-
   return (
     <SafeAreaView style={styles.first_view}>
       <View style={{ marginTop: 50 }}>

@@ -17,7 +17,7 @@ const login = () => {
   const [email,setEmail] = useState("");
   const [password,setPassword] = useState("");
   const router = useRouter();
-  useEffect(() => {
+  /*useEffect(() => {
       const checkLogin = async () => {
           try{
               const token = await AsyncStorage.getItem("authToken");
@@ -30,9 +30,9 @@ const login = () => {
       }
 
       checkLogin();
-  },[])
+  },[])*/
   async function signUpWithEmail(){
-      const {data,error} = await supabase.auth.signInWithPassword({
+      const {data, error} = await supabase.auth.signInWithPassword({
           email:email,
           password:password
       })
@@ -41,8 +41,7 @@ const login = () => {
           AsyncStorage.setItem("authToken",token)
           router.replace("/(home)")
       }
-    }
-
+  }
   return (
     <SafeAreaView style={styles.first_view}>
       <View style={{ marginTop: 50 }}>
@@ -86,7 +85,7 @@ const login = () => {
           <Text>השאר אותי מחובר</Text>
           <Text>שכחתי סיסמא</Text>
         </View>
-        <Pressable  onPress={signUpWithEmail} style={styles.login}>
+        <Pressable onPress={signUpWithEmail} style={styles.login}>
           <Text style={styles.login_t}>login</Text>
         </Pressable>
         <Pressable
