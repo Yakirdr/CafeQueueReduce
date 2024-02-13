@@ -4,7 +4,7 @@ import Carousel from "../../Components/Carousal";
 const index = () => {
   return (
     <View>
-      <Text>home s </Text>
+      <Text>home screen please dun!</Text>
     <Carousel/>
     </View>
   )
