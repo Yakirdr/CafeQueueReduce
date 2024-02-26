@@ -140,7 +140,7 @@ const styles = StyleSheet.create({
   },
   login: {
     width: 200,
-    backgroundColor: "#fd5c63",
+    backgroundColor: "#EF9995",
     borderRadius: 6,
     marginLeft: "auto",
     marginRight: "auto",
