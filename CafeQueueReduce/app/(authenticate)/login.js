@@ -156,6 +156,6 @@ const styles = StyleSheet.create({
   register: {
     textAlign: "center",
     color: "gray",
-    fontSize: 55,
+    fontSize: 900,
   },
 });
