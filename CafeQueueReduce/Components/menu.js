@@ -42,7 +42,7 @@ const Menu = ({ item }) => {
           size={24}
           color="#1F75FE"
         />
-        <Text style={styles.tofers}>ITS-YAKIR-DRAY-TIME</Text>
+        <Text style={styles.tofers}></Text>
       </View>
     </Pressable>
   );
