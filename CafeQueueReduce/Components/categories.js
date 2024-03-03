@@ -11,4 +11,6 @@ const comp1 = () => {
 
 export default comp1
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  
+})
