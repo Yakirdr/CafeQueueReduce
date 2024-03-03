@@ -43,7 +43,7 @@ const login = () => {
       }
   }
   return (
-    <SafeAreaView style={styles.first_view}>
+    <SafeAreaView style={styles.first_view}> 
       <View style={{ marginTop: 50 }}>
         {/* /*לתקן ל70 */}
         <Text style={styles.f_title}>הקפיטריה של סמי שמעון</Text>
