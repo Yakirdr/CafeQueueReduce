@@ -6,7 +6,7 @@ import Softmenu from "../../Components/softmenu";
 const index = () => {
   return (
     <View>
-      <Text>home screen please dun!</Text>
+      <Text>home screen please dun!!!!!!!!!!!!!!!!!!!!</Text>
     <Carousel/>
     < Softmenu/>
    <Mmenu/>
