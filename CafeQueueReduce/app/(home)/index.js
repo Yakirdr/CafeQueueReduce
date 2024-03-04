@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import Carousel from "../../Components/Carousal";
+/*import Carousel from "../../Components/Carousal";*/
 
 
 const index = () => {
@@ -9,11 +9,11 @@ const index = () => {
       <Text>home screen please done!</Text>
       <Text>home screen please done!</Text>
       <Text>home screen please done!</Text>
-   
+    
     </View>
   )
 }
 
 export default index
 
-const styles = StyleSheet.create({})
+/*const styles = StyleSheet.create({})*/
