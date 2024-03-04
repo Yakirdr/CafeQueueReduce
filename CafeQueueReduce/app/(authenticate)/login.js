@@ -11,41 +11,47 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "expo-router";
 import { Entypo } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
-import { supabase } from "../../superbase";
+import { supabase } from "../../Supabase";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 const login = () => {
-  const [email,setEmail] = useState("");
-  const [password,setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const router = useRouter();
-  /*useEffect(() => {
-      const checkLogin = async () => {
-          try{
-              const token = await AsyncStorage.getItem("authToken");
-              if(token){
-                  router.replace("/(home)")
-              }
-          } catch(error){
-              console.log(error)
-          }
-      }
 
-      checkLogin();
-  },[])*/
-  async function signUpWithEmail(){
-      const {data, error} = await supabase.auth.signInWithPassword({
-          email:email,
-          password:password
-      })
-      if(data){
-          const token = data?.session?.access_token;
-          AsyncStorage.setItem("authToken",token)
-          router.replace("/(home)")
+  /*useEffect(() => {
+    const checkLogin = async () => {
+      try {
+        const token = await AsyncStorage.getItem("authToken");
+        if (token) {
+          router.replace("/(home)");
+        }
+      } catch (error) {
+        console.log(error);
       }
-  }
+    };
+
+    checkLogin();
+  }, []);
+*/
+  const signUpWithEmail = async () => {
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email: email,
+      password: password
+    });
+    if (error) {
+      console.error("Error signing up:", error.message);
+      return;
+    }
+    if (data) {
+      const token = data?.session?.access_token;
+      AsyncStorage.setItem("authToken", token);
+      router.replace("/(home)");
+    }
+  };
+
   return (
     <SafeAreaView style={styles.first_view}> 
       <View style={{ marginTop: 50 }}>
-        {/* /*לתקן ל70 */}
         <Text style={styles.f_title}>הקפיטריה של סמי שמעון</Text>
       </View>
       <KeyboardAvoidingView>
