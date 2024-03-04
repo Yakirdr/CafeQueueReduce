@@ -7,9 +7,6 @@ const index = () => {
   return (
     <View>
       <Text>home screen please done!</Text>
-      <Text>home screen please done!</Text>
-      <Text>home screen please done!</Text>
-    
     </View>
   )
 }
