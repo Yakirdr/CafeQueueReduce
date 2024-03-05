@@ -11,14 +11,15 @@ import {
 import React, { useState } from "react";
 import { useRouter } from "expo-router";
 import { Entypo, Feather, Ionicons } from "@expo/vector-icons";
-import {supabase } from "../../superbase";
+import {supabase } from "../../Supabase";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
-  async function signUpNewUser() {
+  const signUpNewUser = async () => {
     const { data, error } = await supabase.auth.signUp({
       name: name,
       email: email,
@@ -26,12 +27,13 @@ const register = () => {
     });
 
     if(data?.user?.role == "authenticated"){
-        Alert.alert("You have been successfully registered"/*,"please check your email for confirmation"*/)
+        Alert.alert("You have been successfully registered")
     }
     if(error){
         Alert.alert("Error while registering","please try again")
     }
-  }
+}
+
   return (
     <SafeAreaView style={styles.first_view}>
       <View style={{ marginTop: 50 }}>
