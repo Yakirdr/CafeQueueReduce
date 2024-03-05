@@ -3,6 +3,7 @@ import React from "react";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import { Entypo } from "@expo/vector-icons";
+/*yakir*/
 const Menu = ({ item }) => {
   const router = useRouter();
   return (
