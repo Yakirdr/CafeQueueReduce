@@ -4,7 +4,7 @@ import React from 'react'
 const comp2 = () => {
   return (
     <View>
-      <Text>comp2 ofek p</Text>
+      <Text>idan</Text>
     </View>
   )
 }
