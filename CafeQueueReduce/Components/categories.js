@@ -1,16 +1,63 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { 
+  FlatList,
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+} from "react-native";
+import React from "react";
 
-const comp1 = () => {
+const Categories = () => {
+  
+  const items = [
+    {
+      id: "1",
+      name: "משלוחים",
+    },
+    {
+      id: "2",
+      name: "קפה מכל הסוגים",
+    },
+    {
+      id: "3",
+      name: "מבצעים",
+    },
+    {
+      id: "4",
+      name: "הפסקות איסוף אוכל",
+    },
+  ];
   return (
     <View>
-      <Text>index</Text>
+      <FlatList
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        data={items}
+        renderItem={({ item }) => (
+          <TouchableOpacity activeOpacity={0.8} style={{ marginTop: 5 }}>
+            <View style={styles.cont}>
+              <Text style={styles.text}>{item?.name}</Text>
+            </View>
+          </TouchableOpacity>
+        )}
+      />
     </View>
-  )
-}
+  );
+};
 
-export default comp1
+export default Categories;
 
 const styles = StyleSheet.create({
-  
-})
+  cont: {
+    marginHorizontal: 10,
+    marginVertical: 5,
+    padding: 5,
+    backgroundColor: "#DB7093",
+    borderRadius: 4,
+  },
+  text: {
+    paddingHorizontal: 5,
+    color: "white",
+    fontWeight: "500",
+  },
+});

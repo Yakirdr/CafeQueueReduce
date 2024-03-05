@@ -163,10 +163,6 @@ const styles = StyleSheet.create({
   register: {
     textAlign: "center",
     color: "gray",
-<<<<<<< Updated upstream
-    fontSize: 20,
-=======
     fontSize: 25,
->>>>>>> Stashed changes
   },
 });
