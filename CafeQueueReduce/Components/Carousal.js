@@ -11,7 +11,7 @@ function Carousal() {
         dotColor="#13274F"
         inactiveDotColor="#90A4AE"
         ImageComponentStyle={styles.imagecomp} />
-      <Text>Carousal</Text>
+     
     </View>
   );
 }
