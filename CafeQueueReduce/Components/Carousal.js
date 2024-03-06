@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-/*ofek*/
+//ofek
 function Carousal() {
   return (
     <View>
@@ -10,8 +10,7 @@ function Carousal() {
         circleLoop
         dotColor="#13274F"
         inactiveDotColor="#90A4AE"
-        ImageComponentStyle={styles.imagecomp} />
-     
+        ImageComponentStyle={styles.imagecomp}/>  
     </View>
   );
 }

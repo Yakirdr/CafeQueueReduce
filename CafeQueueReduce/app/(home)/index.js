@@ -1,6 +1,6 @@
 import { /*StyleSheet*/ Text, View } from 'react-native'
 import React from 'react'
-/*import Carousel from "../../Components/Carousal";*/
+//import Carousel from "../../Components/Carousal";
 import Categories from '../../Components/categories'
 
 const index = () => {

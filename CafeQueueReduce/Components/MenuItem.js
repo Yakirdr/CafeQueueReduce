@@ -6,7 +6,7 @@ import { FontAwesome } from "@expo/vector-icons";
 const MenuItem = ({ item }) => {
 //  const [additems, setAddItems] = useState(0);
 //  const [selected, setSelected] = useState(false);
- // const dispatch = useDispatch();
+// const dispatch = useDispatch();
   return (
     <View>
       <Pressable
@@ -85,4 +85,7 @@ const MenuItem = ({ item }) => {
 
 export default MenuItem;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  // תעביר את העיצוב לכאן !!
+  //עידו
+});
