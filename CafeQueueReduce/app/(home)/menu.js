@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Image, ScrollView, FlatList } from 'react-nativ
 const Menu = [
   {
     category: "שתייה",
-   // categoryImage: "https://example.com/category_drinks.jpg", // Image for the category
+    categoryImage: require("../../assets/DRINKS.jpg"),
     items: [
       {
         id: "1",
