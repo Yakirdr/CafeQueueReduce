@@ -1,6 +1,6 @@
-import { StyleSheet, Text, View,Image } from 'react-native'
-import React from 'react'
-import ImageSlider from "react-native-image-slider-box"
+import { StyleSheet, View } from 'react-native';
+import React from 'react';
+import { SliderBox } from "react-native-image-slider-box"; // Corrected component name
 
 function Carousal() {
   const images = [
@@ -23,28 +23,25 @@ function Carousal() {
     require('../../CafeQueueReduce/assets/zero.jpg'),
     require('../../CafeQueueReduce/assets/kola.jpg'),
     ];
-   return (
+  return (
     <View>
-       {images.map((image, index) => (
-        <Image key={0} source={image} style={styles.image} />
-      ))}
-      <ImageSlider
+      <SliderBox
+        images={images} // Pass the images array here
         autoPlay
         circleLoop
         dotColor="#13274F"
         inactiveDotColor="#90A4AE"
         ImageComponentStyle={styles.imagecomp} />
-      <Text>Carousal</Text>
     </View>
   );
 }
 
-export default Carousal
+export default Carousal;
 
 const styles = StyleSheet.create({
-  imagecomp:{
-    borderRadius:6,
+  imagecomp: {
+    borderRadius: 6,
     width: "94%",
-    marginTop:10,
+    marginTop: 10,
   }
-})
+});

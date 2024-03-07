@@ -8,7 +8,7 @@ const index = () => {
     <View>
       <Text>home screen please done!</Text>
       <Categories/>
-      <Carousel/>
+     <Carousel/>
     </View>
   )
 }
