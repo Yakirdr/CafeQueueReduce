@@ -104,7 +104,7 @@ const index = () => {
           </Text>
         </View>
         <Pressable style={styles.p1}>
-          <Text>Y.D APP</Text>
+          <Text>gruop 18</Text>
         </Pressable>
       </View>
       <View style={styles.v2}>
