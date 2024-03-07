@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FlatList, Modal, ScrollView, StyleSheet, Text, TouchableOpacity, View ,Image} from "react-native";
-import {render, fireEvent} from "@testing-library/react-native";
+//import {test ,render, fireEvent } from "@testing-library/react-native";
 
 
 const Categories = () => {
@@ -163,6 +163,7 @@ const styles = StyleSheet.create({
   },
 
 });
+
 //AI בדיקת יחידה בלי רכיב 
 // בדיקה שבעזרתה נבדוק שכאשר לוחצים על כפתור "חזור לקטגוריות", המודל ייסגר ונחזור למסך הקטגוריות
 test("pressing 'Back to Categories' button should close the modal and return to categories screen", async () => {

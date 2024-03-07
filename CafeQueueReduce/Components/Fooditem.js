@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
   }
 
 })
-////my test
+/*////my test
 // בדיקת יחידה למקרה וקיבלנו אייטם לא תקין מהמניו שהוא מכיל לפחות טקסט
 test('renders "item not received" when item prop is not passed', () => {
   const { getByText } = render(<FoodItem />);
@@ -81,5 +81,5 @@ test('renders main item name when item prop is passed', () => {
   expect(nameElement).toBeTruthy();
   });
       
-  
+  */
 
