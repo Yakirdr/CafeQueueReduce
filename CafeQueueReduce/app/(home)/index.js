@@ -8,7 +8,7 @@ import {
   TextInput,
   Image,
 } from "react-native";
-import React from "react";
+import React , {useState, useMemo}from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import Carousel from "../../Components/Carousal";
@@ -304,7 +304,18 @@ const menu = [
     time: "10 min",
   },
 ];
+
+
 const index = () => {
+const [filterQuery, setFilterQuery] = useState("");
+  
+  // מחשב מחדש את רשימת הפריטים להצגה בהתאם לשאילתת הסינון
+  const itemToRender = useMemo(() => {
+    // אם filterQuery ריקה, אין צורך בסינון ונחזיר את כל התפריט
+    if (!filterQuery) return menu;
+    // סינון התפריט על פי המחרוזת ב-filterQuery (ללא הבחנה בין אותיות רישיות לקטנות)
+    return menu.filter((item) => item.name.toLowerCase().includes(filterQuery.toLowerCase()));
+  }, [filterQuery, menu]); // תלויות שבשינויין החישוב יתבצע מחדש
   return (
     <ScrollView style={styles.cont}>
       <View style={styles.v1}>
@@ -322,7 +333,8 @@ const index = () => {
         </Pressable>
       </View>
       <View style={styles.v2}>
-        <TextInput placeholder="Welcome to the cafeteria of Sami Shamoon College" />
+        <TextInput placeholder="Welcome to the cafeteria of Sami Shamoon College" value={filterQuery}   onChangeText= { setFilterQuery}
+  style={{ flex: 1 }} />
         <AntDesign name="search1" size={24} color="blue" />
       </View>
       <Carousel/>
@@ -368,7 +380,7 @@ const index = () => {
       <Text style={styles.tall}>הכל</Text>
 
 <View style={{ marginHorizontal: 8 }}>
-  {menu?.map((item, index) => (
+  {itemToRender?.map((item, index) => (
     <Catmenu key={index} item={item} />
   ))}
 </View>
