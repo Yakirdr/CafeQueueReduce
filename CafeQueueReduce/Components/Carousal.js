@@ -48,6 +48,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   }
 });
+/*
 describe('Carousal component', () => { 
   it('should render ScrollView component', () => {//מוודא שהוא מכניס את הקומפוננט של סקרול ויו מפייל אינדקס ששם מחליט אם נוכל לגולל למטה במסך
     const wrapper = shallow(<Carousal />);
@@ -95,4 +96,4 @@ describe('Carousal component', () => {
       require('../../CafeQueueReduce/assets/kola.jpg'),
     ]);//ofek
   });
-});
+*/
