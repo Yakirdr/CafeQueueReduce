@@ -111,7 +111,7 @@ const index = () => {
         <TextInput placeholder="Welcome to the cafeteria of Sami Shamoon College" />
         <AntDesign name="search1" size={24} color="blue" />
       </View>
-      
+      <Carousel/>
       <Categories />
 
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
