@@ -18,7 +18,7 @@ const login = () => {
   const [password, setPassword] = useState("");
   const router = useRouter();
 
-  /*useEffect(() => {
+ useEffect(() => {
     const checkLogin = async () => {
       try {
         const token = await AsyncStorage.getItem("authToken");
@@ -32,7 +32,7 @@ const login = () => {
 
     checkLogin();
   }, []);
-*/
+
   const signUpWithEmail = async () => {
     const { data, error } = await supabase.auth.signInWithPassword({
       email: email,

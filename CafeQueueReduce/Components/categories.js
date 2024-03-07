@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FlatList, Modal, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-const Categories = () => {
+const categories = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
 
@@ -81,7 +81,7 @@ const Categories = () => {
   );
 };
 
-export default Categories;
+export default categories;
 
 const styles = StyleSheet.create({
   cont: {

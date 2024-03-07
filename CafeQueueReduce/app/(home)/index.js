@@ -1,9 +1,18 @@
-import { StyleSheet, Text, View } from "react-native";
+import {
+  Alert,
+  StyleSheet,
+  Text,
+  View,
+  ScrollView,
+  Pressable,
+  TextInput,
+  Image,
+} from "react-native";
 import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import Carousel from "../../Components/Carousal";
-import Categories from "../../components/categories";
+import Categories from "../../Components/categories"
 const recommended = [
   {
     id: 0,
