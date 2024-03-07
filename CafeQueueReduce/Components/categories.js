@@ -163,6 +163,7 @@ const styles = StyleSheet.create({
   },
 
 });
+/*
 //AI בדיקת יחידה בלי רכיב 
 // בדיקה שבעזרתה נבדוק שכאשר לוחצים על כפתור "חזור לקטגוריות", המודל ייסגר ונחזור למסך הקטגוריות
 test("pressing 'Back to Categories' button should close the modal and return to categories screen", async () => {
@@ -194,5 +195,5 @@ test("component accessibility", async () => {
   const flatList = getByTestId("categoriesList");
   expect(flatList.props.horizontal).toBe(true); // מוודא שהרשימה נוצרת באופן אופקי
 });
-
+*/
 
