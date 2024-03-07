@@ -18,7 +18,7 @@ const login = () => {
   const [password, setPassword] = useState("");
   const router = useRouter();
 
-  useEffect(() => {
+ useEffect(() => {
     const checkLogin = async () => {
       try {
         const token = await AsyncStorage.getItem("authToken");
