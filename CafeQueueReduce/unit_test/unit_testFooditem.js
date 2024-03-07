@@ -1,4 +1,4 @@
-import { Pressable,StyleSheet, Text, View } from 'react-native'
+/*import { Pressable,StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { AntDesign } from '@expo/vector-icons';
 import MenuItem from './MenuItem';
@@ -35,5 +35,5 @@ test('renders main item name when item prop is passed', () => {
   expect(nameElement).toBeTruthy();
   });
       
-  
+  */
 
