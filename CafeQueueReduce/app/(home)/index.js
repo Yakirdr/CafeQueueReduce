@@ -13,6 +13,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import Carousel from "../../Components/Carousal";
 import Categories from "../../Components/categories";
+import Catmenu from "../../Components/Catmenu";
 const recommended = [
   {
     id: 0,
@@ -89,7 +90,220 @@ const items = [
     image: "https://cdn-icons-png.flaticon.com/128/8302/8302686.png",
   },
 ];
+const menu = [
+  {
+    images: [
+      {
+        id: "0",
+        image:
+          "https://b.zmtcdn.com/data/pictures/chains/8/51828/68d04135bbac1e3d5ff5a87d45974da1.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A",
+        description: "Desi Burrito • Rs249",
+      },
+      {
+        id: "1",
+        image:
+          "https://b.zmtcdn.com/data/pictures/chains/8/51828/1f8008fc1cec3cd7ea2b559c32b1e642.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A",
+        description: "Indain Burrito • Rs149",
+      },
+    ],
+    id: "0",
+    featured_image:
+      "https://img.freepik.com/premium-photo/photo-realistic-beef-schnitzel-sandwich_960911-1575.jpg",
 
+    name: "בגטים",
+    
+    time: "10 -25 min",
+    average_cost_for_two: 25,
+    aggregate_rating: 4.3,
+   
+    offer: "10% OFF",
+    
+    latitude: 12.9916,
+    longitude: 77.5712,
+  },
+
+  {
+    id: "1",
+    featured_image:
+      "https://medias.hashulchan.co.il/www/uploads/2015/11/plov-1140x641-1577709923.jpg",
+    name: "בצלחת",
+    cuisines: "אוכל בוכרי",
+    average_cost_for_two: 1500,
+    aggregate_rating: 4.5,
+    adress:
+      "C-7, Vishal Enclave, Opposite Metro Pillar 417, Rajouri Garden, New Delhi",
+    smalladress: "Rajouri Garden, New Delhi",
+    offer: "10%",
+    no_of_Delivery: 2500,
+    latitude: 12.9716,
+    longitude: 77.5946,
+    time: "44 min",
+  },
+
+  {
+    id: "2",
+    featured_image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTCYsmzl1yfX0MwTN-E_uHC-bk3p181VzjIA&usqp=CAU",
+    name: "קפה מכל הסוגים",
+    cuisines: "Cafe, Italian, Continental",
+    average_cost_for_two: 850,
+    aggregate_rating: 4.3,
+    adress:
+      "2524, 1st Floor, Hudson Lane, Delhi University-GTB Nagar, New Delhi",
+    smalladress: "Delhi University-GTB Nagar",
+    offer: "",
+    no_of_Delivery: 1800,
+    latitude: 12.9716,
+    longitude: 77.5946,
+    time: "20 min",
+  },
+
+  {
+    id: "3",
+    featured_image:
+      "https://img.mako.co.il/2021/05/09/burekas_retzel_rotem_lib_2_autoOrient_i.jpg",
+    name: "בורקסים",
+    cuisines: "אפיה במקום",
+    average_cost_for_two: 1850,
+    aggregate_rating: 4.1,
+    adress:
+      "1st Floor, DDA Shopping Complex, Aurobindo Place, Hauz Khas, New Delhi",
+    smalladress: "Hauz Khas, New Delhi",
+    offer: "",
+    no_of_Delivery: 1700,
+    latitude: 12.9716,
+    longitude: 77.5946,
+    time: "5 min",
+  },
+
+  {
+    id: "4",
+    featured_image:
+      "https://images1.ynet.co.il/PicServer4/2016/06/22/7084958/70849500100792980551no.jpg",
+    name: "המבורגרים",
+    cuisines: "כשר",
+    average_cost_for_two: 1600,
+    aggregate_rating: 4.4,
+    adress: "M-38, Outer Circle, Connaught Place, New Delhi",
+    smalladress: "Connaught Place, New Delhi",
+    offer: "",
+    no_of_Delivery: 1230,
+    latitude: 12.9716,
+    longitude: 77.5946,
+    time: "25 min",
+  },
+  {
+    id: "5",
+    featured_image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREAW6AHZuQtR_1d9WPZn5mjK_jG-aAJxYfLQ&usqp=CAU",
+    name: "כנפיים",
+    cuisines: "צילי ועוד....",
+    aggregate_rating: 3.5,
+    adress: "6th Floor, Anil Plaza 2, G.S. Road, Christian Basti",
+    smalladress: "Anil Plaza 2, G.S. Road",
+    offer: "",
+    no_of_Delivery: 500,
+    latitude: 12.9716,
+    longitude: 77.5946,
+    time: "15 min",
+  },
+  {
+    id: "6",
+    featured_image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLvPe-0FZVXXBJkBWf--jnjCcKN6PxD1Zgdw&usqp=CAU",
+    name: "תבשילים",
+    cuisines: "",
+    aggregate_rating: 4.2,
+    adress: "Christian Basti, Guwahati",
+    smalladress: "Christian Basti, Guwahati",
+    offer: "",
+    no_of_Delivery: 1100,
+    latitude: 12.9716,
+    longitude: 77.5946,
+    time: "במקום",
+  },
+  {
+    id: "7",
+    featured_image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScVnb3JlCmtRJUTXo3Tj3dl_ZPjq2ScYFE6g&usqp=CAU",
+    name: "בפיתה",
+    cuisines: "Chinese, North Indian",
+    aggregate_rating: 4.5,
+    adress:
+      "Opposite Institute of Social Science, Bhuban Road, Uzan Bazaar, Guwahati",
+    smalladress: "Bhuban Road, Uzan Bazaar, Guwahati",
+    offer: "",
+    no_of_Delivery: 1500,
+    latitude: 12.9716,
+    longitude: 77.5946,
+    time: "0 min",
+  },
+
+  {
+    id: "8",
+    featured_image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR30R3IntPKgz0A7WzeylvnDyM8EwmAfE2qXA&usqp=CAU",
+    name: "שיפודים",
+    cuisines: "North Indian, Continental",
+    aggregate_rating: 3.9,
+    adress:
+      "1st Floor, Central Mall, G.S. Road, Sree Nagar, Christian Basti, Guwahati",
+    smalladress: "Sree Nagar, Christian Basti, Guwahati",
+    offer: "",
+    no_of_Delivery: 2500,
+    latitude: 12.9716,
+    longitude: 77.5946,
+    time: "25 min",
+  },
+
+  {
+    id: "9",
+    featured_image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEO2PLGXFMmFjaR1Kj19mndyPl-Wh4Kbq0Hw&usqp=CAU",
+    name: "סטייק",
+    cuisines: "אמריקאי",
+    aggregate_rating: 4.5,
+    adress:
+      "21-A, Near Madaan Hospital, Majitha Road, Basant Nagar, Amritsar",
+    smalladress: "Basant Nagar, Amritsar",
+    offer: "",
+    no_of_Delivery: 1200,
+    latitude: 12.9716,
+    longitude: 77.5946,
+    time: " לפי מידת עשייה",
+  },
+
+  {
+    id: "11",
+    featured_image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDOJlhGwhda4tsD8Rgk1A97akTRV8QJJC4DA&usqp=CAU",
+    name: "גבינות",
+    cuisines: "ארוחות בוקר",
+    aggregate_rating: 4.2,
+    adress: "Phawara Chowk, Town Hall, Amritsar",
+    smalladress: "Town Hall, Amritsar",
+    offer: "",
+    no_of_Delivery: 1600,
+    latitude: 12.9716,
+    longitude: 77.5946,
+    time: "20 min",
+  },
+  {
+    id: "12",
+    featured_image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjGqVUxo6HO-CtXn-AHgAin1tvN4l8_A0e1Q&usqp=CAU",
+    name: "פיצות",
+    cuisines: "האיטלקיות המיוחדות",
+    aggregate_rating: 4.6,
+    adress: " Ranjit Avenue, Amritsar",
+    smalladress: " Ranjit Avenue, Amritsar",
+    offer: "",
+    no_of_Delivery: 2200,
+    latitude: 12.9716,
+    longitude: 77.5946,
+    time: "10 min",
+  },
+];
 const index = () => {
   return (
     <ScrollView style={styles.cont}>
@@ -151,6 +365,13 @@ const index = () => {
           </View>
         ))}
       </ScrollView>
+      <Text style={styles.tall}>הכל</Text>
+
+<View style={{ marginHorizontal: 8 }}>
+  {menu?.map((item, index) => (
+    <Catmenu key={index} item={item} />
+  ))}
+</View>
     </ScrollView>
   );
 };
