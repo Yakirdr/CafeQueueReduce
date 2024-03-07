@@ -177,7 +177,7 @@ test("pressing 'Back to Categories' button should close the modal and return to 
   fireEvent.press(getByText("חזור לקטגוריות"));
   expect(queryByText("מנות עיקריות")).toBeFalsy(); // אימות שהמודל נסגר
 });
-
+//בדיקת יחידה רכיב copilot windows
 //בדיקת 3: בדיקת נגישות: נבדוק שהרכיב נגיש ופועל כראוי במגוון מצבי שימוש, לדוגמה האם הכפתורים ניתנים ללחיצה, האם הרשימה עוברת גלילה כראוי,ה
 test("component accessibility", async () => {
   // נכין את הרכיב לבדיקה
