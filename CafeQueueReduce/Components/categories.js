@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FlatList, Modal, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-const categories = () => {
+const categories = ({ onModalClose }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
 
@@ -44,6 +44,7 @@ const categories = () => {
         horizontal
         showsHorizontalScrollIndicator={false}
         data={items}
+        
         renderItem={({ item }) => (
           <TouchableOpacity
             activeOpacity={0.8}
@@ -61,13 +62,13 @@ const categories = () => {
         transparent={true}
         visible={modalVisible}
         onRequestClose={() => {
-          setModalVisible(false);
+         onModalClose()
         }}
       >
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
             <Text style={styles.modalText}>{selectedItem?.name}</Text>
-            {/* Add content related to the specific category */}
+         
             <TouchableOpacity
               style={{ ...styles.openButton, backgroundColor: "#2196F3" }}
               onPress={() => setModalVisible(!modalVisible)}

@@ -12,7 +12,7 @@ import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import Carousel from "../../Components/Carousal";
-import Categories from "../../Components/categories"
+import Categories from "../../Components/categories";
 const recommended = [
   {
     id: 0,
@@ -89,147 +89,6 @@ const items = [
     image: "https://cdn-icons-png.flaticon.com/128/8302/8302686.png",
   },
 ];
-const hotels = [
-  {
-    images: [
-      {
-        id: "0",
-        image:
-          "https://b.zmtcdn.com/data/pictures/chains/8/51828/68d04135bbac1e3d5ff5a87d45974da1.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A",
-        description: "",
-      },
-      {
-        id: "0",
-        image:
-          "https://b.zmtcdn.com/data/pictures/chains/8/51828/1f8008fc1cec3cd7ea2b559c32b1e642.jpg?fit=around%7C200%3A200&crop=200%3A200%3B%2A%2C%2A",
-        description: "",
-      },
-    ],
-    id: "0",
-    featured_image:
-      "https://img.freepik.com/premium-photo/photo-realistic-beef-schnitzel-sandwich_960911-1575.jpg",
-
-    name: "בגטים",
-    time: "10 -25 min",
-    aggregate_rating: 4.3,
-    offer: "10% OFF",
-  },
-
-  {
-    id: "1",
-    featured_image:
-      "https://medias.hashulchan.co.il/www/uploads/2015/11/plov-1140x641-1577709923.jpg",
-    name: "בצלחת",
-    aggregate_rating: 4.5,
-
-    offer: "10%",
-
-    time: "44 min",
-  },
-
-  {
-    id: "2",
-    featured_image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTCYsmzl1yfX0MwTN-E_uHC-bk3p181VzjIA&usqp=CAU",
-    name: "קפה מכל הסוגים",
-
-    aggregate_rating: 4.3,
-    offer: "",
-    time: "20 min",
-  },
-  {
-    id: "3",
-    featured_image:
-      "https://img.mako.co.il/2021/05/09/burekas_retzel_rotem_lib_2_autoOrient_i.jpg",
-    name: "בורקסים",
-    aggregate_rating: 4.1,
-    offer: "",
-    time: "5 min",
-  },
-
-  {
-    id: "4",
-    featured_image:
-      "https://images1.ynet.co.il/PicServer4/2016/06/22/7084958/70849500100792980551no.jpg",
-    name: "המבורגרים",
-    aggregate_rating: 4.4,
-    offer: "",
-    time: "25 min",
-  },
-  {
-    id: "5",
-    featured_image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREAW6AHZuQtR_1d9WPZn5mjK_jG-aAJxYfLQ&usqp=CAU",
-    name: "כנפיים",
-    aggregate_rating: 3.5,
-    offer: "",
-    time: "15 min",
-  },
-  {
-    id: "6",
-    featured_image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLvPe-0FZVXXBJkBWf--jnjCcKN6PxD1Zgdw&usqp=CAU",
-    name: "תבשילים",
-
-    aggregate_rating: 4.2,
-
-    offer: "",
-
-    time: "במקום",
-  },
-  {
-    id: "7",
-    featured_image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScVnb3JlCmtRJUTXo3Tj3dl_ZPjq2ScYFE6g&usqp=CAU",
-    name: "בפיתה",
-    aggregate_rating: 4.5,
-    offer: "",
-    time: "0 min",
-  },
-
-  {
-    id: "8",
-    featured_image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR30R3IntPKgz0A7WzeylvnDyM8EwmAfE2qXA&usqp=CAU",
-    name: "שיפודים",
-
-    aggregate_rating: 3.9,
-
-    offer: "",
-
-    time: "25 min",
-  },
-
-  {
-    id: "9",
-    featured_image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEO2PLGXFMmFjaR1Kj19mndyPl-Wh4Kbq0Hw&usqp=CAU",
-    name: "סטייק",
-    aggregate_rating: 4.5,
-    offer: "",
-    time: " לפי מידת עשייה",
-  },
-
-  {
-    id: "11",
-    featured_image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDOJlhGwhda4tsD8Rgk1A97akTRV8QJJC4DA&usqp=CAU",
-    name: "גבינות",
-    aggregate_rating: 4.2,
-    offer: "",
-    time: "20 min",
-  },
-  {
-    id: "12",
-    featured_image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjGqVUxo6HO-CtXn-AHgAin1tvN4l8_A0e1Q&usqp=CAU",
-    name: "פיצות",
-    aggregate_rating: 4.6,
-    offer: "",
-
-    time: "10 min",
-  },
-];
 
 const index = () => {
   return (
@@ -252,7 +111,7 @@ const index = () => {
         <TextInput placeholder="Welcome to the cafeteria of Sami Shamoon College" />
         <AntDesign name="search1" size={24} color="blue" />
       </View>
-      <Carousel />
+      
       <Categories />
 
       <ScrollView horizontal showsHorizontalScrollIndicator={false}>
