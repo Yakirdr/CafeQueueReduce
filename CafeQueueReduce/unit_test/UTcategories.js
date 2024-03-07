@@ -7,7 +7,7 @@ import Categories from './Categories';
 test("pressing 'Back to Categories' button should close the modal and return to categories screen", async () => {
     // נכין את הרכיב לבדיקה
     const { getByText, queryByText } = render(<Categories />);
-    
+   
     // בדיקה 1: בדיקה כי כאשר לוחצים על קטגוריה, המודל נפתח
     fireEvent.press(getByText("מנות עיקריות"));
     expect(queryByText("מנות עיקריות")).toBeTruthy(); // אימות שהמודל נפתח
