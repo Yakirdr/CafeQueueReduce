@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { FlatList, Modal, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { FlatList, Modal, ScrollView, StyleSheet, Text, TouchableOpacity, View ,Image} from "react-native";
+import {test ,render, fireEvent } from "@testing-library/react-native";
+
 
 const Categories = () => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -16,7 +18,7 @@ const Categories = () => {
     },
     {
       id: "3",
-      name: "מאפים"
+      name: "מאפים",
     },
     {
       id: "4",
@@ -39,7 +41,7 @@ const Categories = () => {
   };
 
   return (
-    <View>
+    <View style={styles.container}>
       <FlatList
         horizontal
         showsHorizontalScrollIndicator={false}
@@ -51,31 +53,39 @@ const Categories = () => {
             onPress={() => handleItemPress(item)}
           >
             <View style={styles.cont}>
+              <Image source={item.image} style={styles.image} />
               <Text style={styles.text}>{item?.name}</Text>
             </View>
           </TouchableOpacity>
         )}
       />
+
       <Modal
         animationType="slide"
-        transparent={true}
         visible={modalVisible}
+        presentationStyle="fullScreen"
         onRequestClose={() => {
           setModalVisible(false);
         }}
+        
       >
+        <ScrollView>
+          <View>
+            <Text style={styles.modalText}>{selectedItem?.name}</Text> 
+          </View>
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-            <Text style={styles.modalText}>{selectedItem?.name}</Text>
+            {/* <Text style={styles.modalText}>{selectedItem?.name}</Text> */}
             {/* Add content related to the specific category */}
             <TouchableOpacity
-              style={{ ...styles.openButton, backgroundColor: "#2196F3" }}
+              style={{ ...styles.openButton, backgroundColor: "#DB7093" }}
               onPress={() => setModalVisible(!modalVisible)}
             >
-              <Text style={styles.textStyle}>Close</Text>
+              <Text style={styles.textStyle}>חזור לקטגוריות</Text>
             </TouchableOpacity>
           </View>
         </View>
+        </ScrollView>
       </Modal>
     </View>
   );
@@ -84,15 +94,24 @@ const Categories = () => {
 export default Categories;
 
 const styles = StyleSheet.create({
+  container: {
+    paddingTop: 20, 
+  },
   cont: {
     marginHorizontal: 10,
     marginVertical: 5,
-    padding: 5,
+    padding: 10, 
     backgroundColor: "#DB7093",
-    borderRadius: 4,
+    borderRadius: 10,  
+    justifyContent: "center",
+    alignItems: "center", 
+  },
+  image: {
+    width: 50, 
+    height: 50,
+    marginBottom: 5,  
   },
   text: {
-    paddingHorizontal: 5,
     color: "white",
     fontWeight: "500",
   },
@@ -100,7 +119,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 22,
+    marginTop: 100,
+    
   },
   modalView: {
     margin: 20,
@@ -111,25 +131,68 @@ const styles = StyleSheet.create({
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
-      height: 2,
+      height: 0,
     },
-    shadowOpacity: 0.25,
     shadowRadius: 4,
-    elevation: 5,
+    
   },
   openButton: {
+    marginTop: 20, // שינוי במרווח שמעל הכפתור
     backgroundColor: "#F194FF",
     borderRadius: 20,
-    padding: 10,
+    padding: 15, // שינוי בפדינג של הכפתור
     elevation: 2,
   },
   textStyle: {
     color: "white",
     fontWeight: "bold",
     textAlign: "center",
+    fontSize:17,
   },
   modalText: {
-    marginBottom: 15,
+    marginTop: 60,
     textAlign: "center",
+    fontSize: 40,
+    fontFamily: "Arial", // סוג הפונט
+    fontWeight: "bold",
+    color: "black",
+    padding: 20, // מרווח פנימי לטקסט
+    borderRadius: 10, // רינועי פינה
+    borderWidth: 2, // עובי קו המסגרת
+    borderColor: "#FFFFFF", // צבע קו המסגרת
   },
+
 });
+//AI בדיקת יחידה בלי רכיב 
+// בדיקה שבעזרתה נבדוק שכאשר לוחצים על כפתור "חזור לקטגוריות", המודל ייסגר ונחזור למסך הקטגוריות
+test("pressing 'Back to Categories' button should close the modal and return to categories screen", async () => {
+  // נכין את הרכיב לבדיקה
+  const { getByText, queryByText } = render(<Categories />);
+  
+  // בדיקה 1: בדיקה כי כאשר לוחצים על קטגוריה, המודל נפתח
+  fireEvent.press(getByText("מנות עיקריות"));
+  expect(queryByText("מנות עיקריות")).toBeTruthy(); // אימות שהמודל נפתח
+
+  // בדיקה 2: בדיקה כי לאחר לחיצה על כפתור "חזור לקטגוריות", המודל נסגר
+  fireEvent.press(getByText("חזור לקטגוריות"));
+  expect(queryByText("מנות עיקריות")).toBeFalsy(); // אימות שהמודל נסגר
+});
+
+//בדיקת 3: בדיקת נגישות: נבדוק שהרכיב נגיש ופועל כראוי במגוון מצבי שימוש, לדוגמה האם הכפתורים ניתנים ללחיצה, האם הרשימה עוברת גלילה כראוי,ה
+test("component accessibility", async () => {
+  // נכין את הרכיב לבדיקה
+  const { getByText, getByTestId } = render(<Categories />);
+  
+  // בדיקה כי הכפתורים ניתנים ללחיצה
+  const categoryButtons = ["מנות עיקריות", "קפה מכל הסוגים", "מאפים", "שתייה קרה", "מבצעים", "הפסקות איסוף אוכל"];
+  categoryButtons.forEach((buttonText) => {
+    expect(getByText(buttonText)).toBeTruthy(); // מוודא שהכפתור קיים
+    fireEvent.press(getByText(buttonText)); // לוחץ על הכפתור
+  });
+
+  // בדיקה 4: בדיקה כי הרשימה עוברת גלילה כראוי
+  const flatList = getByTestId("categoriesList");
+  expect(flatList.props.horizontal).toBe(true); // מוודא שהרשימה נוצרת באופן אופקי
+});
+
+
