@@ -1,4 +1,4 @@
-import { StyleSheet, View } from 'react-native';
+import { ScrollView, StyleSheet, View,text } from 'react-native';
 import React from 'react';
 import { SliderBox } from "react-native-image-slider-box"; // Corrected component name
 
@@ -25,13 +25,15 @@ function Carousal() {
     ];
   return (
     <View>
+      
       <SliderBox
         images={images} // Pass the images array here
-        autoPlay
+        //autoPlay
         circleLoop
-        dotColor="#13274F"
+        dotColor="black"
         inactiveDotColor="#90A4AE"
         ImageComponentStyle={styles.imagecomp} />
+        
     </View>
   );
 }
@@ -40,8 +42,8 @@ export default Carousal;
 
 const styles = StyleSheet.create({
   imagecomp: {
-    borderRadius: 6,
-    width: "94%",
+    borderRadius: 25,
+    width: "97%",
     marginTop: 10,
   }
 });
