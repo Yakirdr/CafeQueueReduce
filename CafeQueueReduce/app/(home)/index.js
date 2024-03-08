@@ -8,12 +8,15 @@ import {
   TextInput,
   Image,
 } from "react-native";
-import React , {useState, useMemo}from "react";
+import React , {useState, useMemo,useEffect}from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import Carousel from "../../Components/Carousal";
 import Categories from "../../Components/categories";
-import Catmenu from "../../Components/Catmenu";
+import Catmenu from "../../Components/Catmenu"
+import menu from "./menu";
+import { UseSelector, useSelector } from "react-redux";
+import { supabase } from "../../Supabase";
 const recommended = [
   {
     id: 0,
@@ -90,7 +93,7 @@ const items = [
     image: "https://cdn-icons-png.flaticon.com/128/8302/8302686.png",
   },
 ];
-const menu = [
+const manu = [
   {
     images: [
       {
@@ -308,14 +311,37 @@ const menu = [
 
 const index = () => {
 const [filterQuery, setFilterQuery] = useState("");
-  
+const [data,setData] = useState([]);
   // מחשב מחדש את רשימת הפריטים להצגה בהתאם לשאילתת הסינון
   const itemToRender = useMemo(() => {
     // אם filterQuery ריקה, אין צורך בסינון ונחזיר את כל התפריט
-    if (!filterQuery) return menu;
+// sourcery skip: use-braces
+    if (!filterQuery) return manu;
     // סינון התפריט על פי המחרוזת ב-filterQuery (ללא הבחנה בין אותיות רישיות לקטנות)
     return menu.filter((item) => item.name.toLowerCase().includes(filterQuery.toLowerCase()));
-  }, [filterQuery, menu]); // תלויות שבשינויין החישוב יתבצע מחדש
+  }, [filterQuery, manu]); // תלויות שבשינויין החישוב יתבצע מחדש
+  const cart =useSelector((state)=>state.cart)
+  console.log(cart)
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const { data, error } = await supabase.from("menu").select("*");
+        console.log("Data:", data);
+        if (error) {
+          console.error("Error fetching data:", error);
+        } else {
+          setData(data);
+        }
+      } catch (error) {
+        console.error("Error in fetchData:", error);
+      }
+    }
+
+    fetchData();
+  }, []);
+
+
+  console.log("data",data)
   return (
     <ScrollView style={styles.cont}>
       <View style={styles.v1}>
@@ -384,6 +410,11 @@ const [filterQuery, setFilterQuery] = useState("");
     <Catmenu key={index} item={item} />
   ))}
 </View>
+<View style={{marginHorizontal:8}}>
+            {data?.map((item,index) => (
+                <Hotel key={index} item={item} menu={item?.menu}/>
+            ))}
+      </View>
     </ScrollView>
   );
 };

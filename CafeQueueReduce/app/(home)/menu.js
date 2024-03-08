@@ -1,10 +1,14 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, ScrollView, FlatList } from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView, FlatList,Pressable } from 'react-native';
+import { addToCart } from '../../Redux/Cart';
+import {useDispatch} from 'react-redux';
+import { useLocalSearchParams, useRouter } from "expo-router";
+import { useSelector } from "react-redux";
 const Menu = [
   {
     category: "שתייה",
     categoryImage: require("../../assets/DRINKS.jpg"),
-    items: [
+    item: [
       {
         id: "1",
         name: "לימונדה ביתית",
@@ -28,7 +32,7 @@ const Menu = [
   {
     category: "בצלחת",
     categoryImage: require("../../assets/schnitzelbaget.jpg"),
-    items: [
+    item: [
       {
         id: "3",
         name: "שניצל עוף",
@@ -52,7 +56,7 @@ const Menu = [
   {
     category: "בגט",
    // categoryImage: "https://example.com/category_baguettes.jpg",
-    items: [
+    item: [
       {
         id: "5",
         name: "בגט סלמון",
@@ -76,14 +80,27 @@ const Menu = [
 ];
 
 const menu = () => {
+  const params = useLocalSearchParams();
+ const router = useRouter();
+  const dispatch = useDispatch()
+ 
   const renderItem = ({ item }) => (
     <View style={styles.itemContainer}>
+
       <Image source={ item.image } style={styles.itemImage} />
       <View style={styles.itemTextContainer}>
         <Text style={styles.itemName}>{item.name}</Text>
         <Text style={styles.itemDescription}>{item.description}</Text>
         <Text style={styles.itemPrice}>Price: {item.price}₪</Text>
         <Text style={styles.itemPrepTime}>Prep time: {item.prepTime}</Text>
+        <Pressable
+      style={styles.addToCart}
+      onPress={() => dispatch(addToCart(item))}
+    >
+      <Text style={styles.t}>Add to Cart</Text>
+    </Pressable>
+        
+       
       </View>
     </View>
   );
@@ -93,11 +110,29 @@ const menu = () => {
       <Text style={styles.categoryName}>{item.category}</Text>
       <Image source={item.categoryImage } style={styles.categoryImage} />
       <FlatList
-        data={item.items}
+        data={item.item}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
         horizontal={false}
       />
+       <View>
+       <Pressable
+      onPress={() =>
+        router.push({
+          pathname: "/cart",
+          params: {
+            id: item.id,
+            name: item.name,
+            price: item.price,
+           
+          },
+        })
+      }
+      style={styles.pres}
+    >
+        <Text>Go to Cart</Text>
+      </Pressable>
+    </View>
     </View>
   );
 
@@ -108,6 +143,7 @@ const menu = () => {
         renderItem={renderCategory}
         keyExtractor={(item) => item.category}
       />
+      
     </ScrollView>
   );
 };
@@ -174,4 +210,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#666',
   },
+  t:{
+    fontSize:20,
+  }
 });

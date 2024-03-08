@@ -1,6 +1,6 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-export const CartSlice = createSlice({
+import { createSlice } from '@reduxjs/toolkit'
+export const 
+CartSlice = createSlice({
   name: "cart",
   initialState: {
     cart: [],
@@ -56,6 +56,6 @@ export const {
   cleanCart,
 } = CartSlice.actions;
 
-export default Cart.action
+export default CartSlice.reducer
 //export default Cart
 
